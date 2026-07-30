@@ -7,12 +7,11 @@ import { MaintenanceConfig, PageConfig, WorkerConfig } from './types/config'
 
 const pageConfig: PageConfig = {
   // Title for your status page
-  title: "lyc8503's Status Page",
+  title: "CloudFlare Status Page",
   // Links shown at the header of your status page, could set `highlight` to `true`
   links: [
-    { link: 'https://github.com/lyc8503', label: 'GitHub' },
-    { link: 'https://blog.lyc8503.net/', label: 'Blog' },
-    { link: 'mailto:me@lyc8503.net', label: 'Email Me', highlight: true },
+    { link: 'https://github.com/matthewddunlap/UptimeFlare/', label: 'GitHub' },
+    { link: 'mailto:mdunlap@digitechcomputer.com', label: 'Email Me', highlight: true },
   ],
 }
 
@@ -28,20 +27,20 @@ const workerConfig: WorkerConfig = {
       // `method` should be a valid HTTP Method
       method: 'GET',
       // `target` is a valid URL
-      target: 'https://example.com',
+      target: 'https://www.digitechcomputer.com'',
       // [OPTIONAL] `tooltip` is ONLY used at status page to show a tooltip
       tooltip: 'This is a tooltip for this monitor',
       // [OPTIONAL] `statusPageLink` is ONLY used for clickable link at status page
-      statusPageLink: 'https://example.com',
+      statusPageLink: 'https://www.digitechcomputer.com',
       // [OPTIONAL] `expectedCodes` is an array of acceptable HTTP response codes, if not specified, default to 2xx
       expectedCodes: [200],
       // [OPTIONAL] `timeout` in millisecond, if not specified, default to 10000
       timeout: 10000,
       // [OPTIONAL] headers to be sent
-      headers: {
-        'User-Agent': 'Uptimeflare',
-        Authorization: 'Bearer YOUR_TOKEN_HERE',
-      },
+      // headers: {
+      //  'User-Agent': 'Uptimeflare',
+      //  Authorization: 'Bearer YOUR_TOKEN_HERE',
+      // },
       // [OPTIONAL] body to be sent (require POST/PUT/PATCH method)
       // body: 'Hello, world!',
       // [OPTIONAL] if specified, the response must contains the keyword to be considered as operational.
@@ -58,23 +57,23 @@ const workerConfig: WorkerConfig = {
     // Example TCP Monitor
     {
       id: 'test_tcp_monitor',
-      name: 'Example TCP Monitor',
+      name: 'EMS SFTP',
       // `method` should be `TCP_PING` for tcp monitors
       method: 'TCP_PING',
       // `target` should be `host:port` for tcp monitors
-      target: '1.2.3.4:22',
-      tooltip: 'My production server SSH',
-      statusPageLink: 'https://example.com',
+      target: '209.209.68.48:22',
+      tooltip: 'EMS SFTP SFTP PORT',
+      //statusPageLink: 'https://example.com',
       timeout: 5000,
     },
   ],
   // [Optional] Notification settings
-  notification: {
+  // notification: {
     // [Optional] Notification webhook settings, if not specified, no notification will be sent
     // More info at Wiki: https://github.com/lyc8503/UptimeFlare/wiki/Setup-notification
-    webhook: {
+    // webhook: {
       // [Required] webhook URL (example: Telegram Bot API)
-      url: 'https://api.telegram.org/bot123456:ABCDEF/sendMessage',
+      // url: 'https://api.telegram.org/bot123456:ABCDEF/sendMessage',
       // [Optional] HTTP method, default to 'GET' for payloadType=param, 'POST' otherwise
       // method: 'POST',
       // [Optional] headers to be sent
@@ -86,24 +85,24 @@ const workerConfig: WorkerConfig = {
       // 'param': append url-encoded payload to URL search parameters
       // 'json': POST json payload as body, set content-type header to 'application/json'
       // 'x-www-form-urlencoded': POST url-encoded payload as body, set content-type header to 'x-www-form-urlencoded'
-      payloadType: 'x-www-form-urlencoded',
+      // payloadType: 'x-www-form-urlencoded',
       // [Required] payload to be sent
       // $MSG will be replaced with the human-readable notification message
-      payload: {
-        chat_id: 12345678,
-        text: '$MSG',
-      },
+      // payload: {
+      //  chat_id: 12345678,
+      //  text: '$MSG',
+      // },
       // [Optional] timeout calling this webhook, in millisecond, default to 5000
-      timeout: 10000,
-    },
+      // timeout: 10000,
+    // },
     // [Optional] timezone used in notification messages, default to "Etc/GMT"
-    timeZone: 'Asia/Shanghai',
+    // timeZone: 'Asia/Shanghai',
     // [Optional] grace period in minutes before sending a notification
     // notification will be sent only if the monitor is down for N continuous checks after the initial failure
     // if not specified, notification will be sent immediately
-    gracePeriod: 5,
-  },
-}
+    // gracePeriod: 5,
+  // },
+// }
 
 // You can define multiple maintenances here
 // During maintenance, an alert will be shown at status page
