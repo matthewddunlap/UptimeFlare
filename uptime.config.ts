@@ -65,7 +65,7 @@ const workerConfig: WorkerConfig = {
       tooltip: 'EMS SFTP SFTP PORT',
       //statusPageLink: 'https://example.com',
       timeout: 5000,
-    }
+    },
   ]
   // [Optional] Notification settings
   // notification: {
@@ -102,7 +102,7 @@ const workerConfig: WorkerConfig = {
     // if not specified, notification will be sent immediately
     // gracePeriod: 5,
   // },
-// }
+}
 
 // You can define multiple maintenances here
 // During maintenance, an alert will be shown at status page
